@@ -127,7 +127,7 @@ resource "docker_service" "traefik" {
     dynamic "networks_advanced" {
       for_each = values(data.docker_network.additional_networks).*.id
       content {
-        name = each.key
+        name = networks_advanced.key
       }
     }
   }
